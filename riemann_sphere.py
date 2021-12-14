@@ -105,7 +105,7 @@ class MESH_OT_riemann_sphere(bpy.types.Operator):
                 func = eval(result)
                 
                 angle = np.angle(func)  # Returns the phase of the complex number
-                final = colorsys.hsv_to_rgb(0.5+0.5*angle/np.pi,1,1)
+                final = colorsys.hsv_to_rgb((0.5*angle/np.pi)%1,1,1)
 
                 color_map.data[i].color = (*final,0)
                 i += 1
